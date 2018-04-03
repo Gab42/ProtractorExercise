@@ -1,4 +1,6 @@
-﻿exports.config = {
+﻿var HtmlReporter = require('protractor-beautiful-reporter');
+
+exports.config = {
     framework: 'jasmine2',
     specs: ['spec.js'],
     chromeOnly: true,
@@ -9,5 +11,8 @@
 
     onPrepare: function () {
         browser.driver.manage().window().maximize();
+        jasmine.getEnv().addReporter(new HtmlReporter({
+            baseDirectory: 'tmp/screenshots'
+        }).getJasmine2Reporter());
     }
 };

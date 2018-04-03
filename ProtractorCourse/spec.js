@@ -16,12 +16,30 @@ describe('Calculator', function () {
     it('Add two numbers', function () {
         var num1 = helper.randomNumber();
         var num2 = helper.randomNumber();
-        //page.firstField.sendkeys("1");
         page.calculate(num1, num2, "+");
         expect(page.result.getText()).toEqual((num1+num2).toString());
     });
    
-    
+    it('Substract two numbers', function () {
+        var num1 = helper.randomNumber();
+        var num2 = helper.randomNumber();
+        page.calculate(num1, num2, "-");
+        expect(page.result.getText()).toEqual((num1 - num2).toString());
+    });
+
+    it('Multiply two numbers', function () {
+        var num1 = helper.randomNumber();
+        var num2 = helper.randomNumber();
+        page.calculate(num1, num2, "*");
+        expect(page.result.getText()).toEqual((num1 * num2).toString());
+    });
+
+    it('Divide two numbers', function () {
+        var num1 = helper.randomNumber();
+        var num2 = helper.randomNumber();
+        page.calculate(num1, num2, "/");
+        expect(page.result.getText()).toEqual((num1 / num2).toString());
+    });
 });
 
 
