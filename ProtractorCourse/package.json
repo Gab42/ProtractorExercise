@@ -1,0 +1,9 @@
+{
+  "name": "protractor-course",
+  "version": "0.0.0",
+  "description": "ProtractorCourse",
+  "main": "app.js",
+  "author": {
+    "name": "ggeneva"
+  }
+}
