@@ -40,6 +40,11 @@ describe('Calculator', function () {
         page.calculate(num1, num2, "/");
         expect(page.result.getText()).toEqual((num1 / num2).toString());
     });
+
+    // todo: check that title/etc elements are present
+    // compare screenshots for element alignment/etc?
+    // test gobutton without input
+
 });
 
 

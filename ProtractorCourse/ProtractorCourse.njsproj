@@ -36,10 +36,6 @@
     <Compile Include="spec.js" />
     <Compile Include="Utils\helper.js" />
     <Compile Include="Utils\urls.js" />
-    <Content Include="typings\selenium-webdriver\selenium-webdriver.d.js" />
-    <Content Include="typings\protractor\angular-protractor.d.js" />
-    <Content Include="typings\node\node.d.js" />
-    <Content Include="typings\jasmine\jasmine.d.js" />
     <Content Include="package.json" />
     <Content Include="README.md" />
   </ItemGroup>
@@ -48,11 +44,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\" />
-    <Folder Include="typings\" />
-    <Folder Include="typings\jasmine\" />
-    <Folder Include="typings\node\" />
-    <Folder Include="typings\protractor\" />
-    <Folder Include="typings\selenium-webdriver\" />
     <Folder Include="Utils\" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
