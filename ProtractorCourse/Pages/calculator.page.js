@@ -4,19 +4,16 @@ var url = require("../Utils/urls.js");
 
 var CalculatorPage = function () {
     browser.get(url.calculatorPageUrl);
-    //window.calculatorPageUrl
 };
 
 
 CalculatorPage.prototype = Object.create({}, {
-    //variables
     firstField:     { get: function () { return element(by.css("input[ng-model='first']")); } },
     secondField:    { get: function () { return element(by.css("input[ng-model='second']")); } },
     goButton:       { get: function () { return element(by.id('gobutton')); } },
     result:         { get: function () { return element(by.css("div>form>h2")); } },
 
 
-    //methods
     calcActions: {
         value: function (a) {
             switch (a) {
