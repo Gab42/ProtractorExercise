@@ -1,17 +1,14 @@
 ﻿'use strict';
 
 var url = require("../Utils/urls.js");
+var calcPage = function () { };
 
-var CalculatorPage = function () {
-    browser.get(url.calculatorPageUrl);
-};
+calcPage.prototype = Object.create({}, {
 
-
-CalculatorPage.prototype = Object.create({}, {
-    firstField:     { get: function () { return element(by.css("input[ng-model='first']")); } },
-    secondField:    { get: function () { return element(by.css("input[ng-model='second']")); } },
-    goButton:       { get: function () { return element(by.id('gobutton')); } },
-    result:         { get: function () { return element(by.css("div>form>h2")); } },
+    firstField: { get: function () { return element(by.css("input[ng-model='first']")); } },
+    secondField: { get: function () { return element(by.css("input[ng-model='second']")); } },
+    goButton: { get: function () { return element(by.id('gobutton')); } },
+    result: { get: function () { return element(by.css("div>form>h2")); } },
 
 
     calcActions: {
@@ -36,8 +33,16 @@ CalculatorPage.prototype = Object.create({}, {
             this.calcActions(operation).click();
             this.goButton.click();
         }
+    },
+
+    getCalculatorPage: {
+        value: function () {
+            browser.get(url.calculatorPageUrl);
+        }
     }
 
 });
 
-module.exports = CalculatorPage;
+
+
+module.exports = calcPage;
