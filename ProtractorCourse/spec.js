@@ -45,7 +45,7 @@ describe('Registration', function () {
         registrationPage.transactionsBtn.click();
         expect(registrationPage.secondtransactionAmountTxt.getText()).toEqual("5000");
         expect(registrationPage.secondtransactionTypeTxt.getText()).toEqual("Debit");
-
+        registrationPage.logoutBtn.click();
     });
 
     browser.sleep(3000);

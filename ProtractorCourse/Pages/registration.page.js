@@ -22,6 +22,8 @@ regPage.prototype = Object.create({}, {
     firsttransactionTypeTxt: { get: function () { return element(by.css("#anchor0 > td:nth-child(3)")); } },
     secondtransactionAmountTxt: { get: function () { return element(by.css("#anchor1 > td:nth-child(2)")); } },
     secondtransactionTypeTxt: { get: function () { return element(by.css("#anchor1 > td:nth-child(3)")); } },
+    logoutBtn: { get: function () { return element(by.css("body > div.ng-scope > div > div.box.mainhdr > button.btn.logout")); } },
+
 
     getRegistrationPage: {
         value: function () {
