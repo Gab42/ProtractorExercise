@@ -30,10 +30,11 @@ describe('Banking', function () {
 
     it('Verify last transaction is deposit', function () {
         // Refresh page until last transaction appears in list
-        do {
+        while (custHomePage.tableRows == 'undefined' && custHomePage.tableRows.length == 0 || custHomePage.tableRows == 'undefined');
+        {
+            browser.sleep(100);
             browser.refresh();
-            browser.sleep(100);         
-        } while (custHomePage.tableRows == 'undefined' && custHomePage.tableRows.length == 0 || custHomePage.tableRows == 'undefined');
+        } 
 
         custHomePage.transactionsBtn.click();
         expect(custHomePage.transactionAmountTxt.getText()).toEqual("10000");
@@ -53,10 +54,11 @@ describe('Banking', function () {
         custHomePage.transactionsBtn.click();
 
         // Refresh page until last transaction appears in list
-        do {
-            browser.refresh();
+        while (custHomePage.tableRows == 'undefined' && custHomePage.tableRows.length < 2 || custHomePage.tableRows == 'undefined');
+        {
             browser.sleep(100);   
-        } while (custHomePage.tableRows == 'undefined' && custHomePage.tableRows.length < 2 || custHomePage.tableRows == 'undefined');
+            browser.refresh();           
+        } 
 
         expect(custHomePage.transactionAmountTxt.getText()).toEqual("5000");
         expect(custHomePage.transactionTypeTxt.getText()).toEqual("Debit");
