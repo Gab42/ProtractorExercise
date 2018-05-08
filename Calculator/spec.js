@@ -1,13 +1,12 @@
 ﻿'use strict';
+var calculatorPage = new (require("./Pages/calculator.page.js"))();
 
-var calcPage = require("./Pages/calculator.page.js");
 var helper = require("./Utils/helper.js");
 var until = protractor.ExpectedConditions;
 var expectedResults = require("./Utils/expectedResults.json");
 
 describe('Calculator', function () {
 
-    var calculatorPage = new calcPage();
 
     beforeEach(function () {
         calculatorPage.getCalculatorPage();
@@ -32,7 +31,7 @@ describe('Calculator', function () {
         var num1 = helper.randomNumber();
         var num2 = helper.randomNumber();
         calculatorPage.calculate(num1, num2, "*");
-        expect(page.result.getText()).toEqual((num1 * num2).toString());
+        expect(calculatorPage.result.getText()).toEqual((num1 * num2).toString());
     });
 
     it('Divide two numbers', function () {
