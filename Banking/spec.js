@@ -26,10 +26,15 @@ describe('Banking', function () {
         custHomePage.depositAmountField.sendKeys("10000");
         custHomePage.depositDoBtn.click();
         expect(custHomePage.transactionSucessNotif.isPresent()).toBe(true);
-        browser.sleep(2000);
     });
 
     it('Verify last transaction is deposit', function () {
+        // Refresh page until last transaction appears in list
+        do {
+            browser.refresh();
+            browser.sleep(100);         
+        } while (custHomePage.tableRows == 'undefined' && custHomePage.tableRows.length == 0 || custHomePage.tableRows == 'undefined');
+
         custHomePage.transactionsBtn.click();
         expect(custHomePage.transactionAmountTxt.getText()).toEqual("10000");
         expect(custHomePage.transactionTypeTxt.getText()).toEqual("Credit");
@@ -42,11 +47,17 @@ describe('Banking', function () {
         custHomePage.withdrawalAmountField.sendKeys("5000");
         custHomePage.withdrawalDoBtn.click();
         expect(custHomePage.transactionSucessNotif.isPresent()).toBe(true);
-        browser.sleep(2000);
     });
 
     it('Verify last transaction is withdrawal', function () {
         custHomePage.transactionsBtn.click();
+
+        // Refresh page until last transaction appears in list
+        do {
+            browser.refresh();
+            browser.sleep(100);   
+        } while (custHomePage.tableRows == 'undefined' && custHomePage.tableRows.length < 2 || custHomePage.tableRows == 'undefined');
+
         expect(custHomePage.transactionAmountTxt.getText()).toEqual("5000");
         expect(custHomePage.transactionTypeTxt.getText()).toEqual("Debit");
         custHomePage.logoutBtn.click();
