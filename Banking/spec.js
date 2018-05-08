@@ -31,9 +31,7 @@ describe('Banking', function () {
     });
 
     it('Verify last transaction is deposit', function () {
-        // Refresh page until last transaction appears in list
-        helper.waitForTransaction(custHomePage.tableRows, transactionCounter);
-
+        browser.sleep(2000);
         custHomePage.transactionsBtn.click();
         expect(custHomePage.transactionAmountTxt.getText()).toEqual("10000");
         expect(custHomePage.transactionTypeTxt.getText()).toEqual("Credit");
@@ -50,11 +48,8 @@ describe('Banking', function () {
     });
 
     it('Verify last transaction is withdrawal', function () {
+        browser.sleep(2000);
         custHomePage.transactionsBtn.click();
-
-        // Refresh page until last transaction appears in list
-        helper.waitForTransaction(custHomePage.tableRows, transactionCounter);
-
         expect(custHomePage.transactionAmountTxt.getText()).toEqual("5000");
         expect(custHomePage.transactionTypeTxt.getText()).toEqual("Debit");
         custHomePage.logoutBtn.click();
