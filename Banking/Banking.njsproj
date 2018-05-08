@@ -32,7 +32,9 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Pages\banking.page.js" />
+    <Compile Include="Pages\customerHome.page.js" />
+    <Compile Include="Pages\customerLogin.page.js" />
+    <Compile Include="Pages\login.page.js" />
     <Compile Include="spec.js" />
     <Compile Include="Utils\helper.js" />
     <Content Include="package.json" />
