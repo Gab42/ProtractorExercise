@@ -1,6 +1,10 @@
 ﻿module.exports = {
-    randomNumber: function(){
-        // random number
-        return Math.floor((Math.random() * 100) + 1);
+    waitForTransaction: function (tableRows, transactionCounter){
+        while (tableRows == 'undefined' && tableRows.length < transactionCounter || tableRows == 'undefined');
+        {
+            browser.sleep(100);
+            browser.refresh();
+            browser.waitForAngular();
+        } 
     }
 }

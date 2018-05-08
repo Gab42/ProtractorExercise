@@ -9,6 +9,7 @@ var helper = require("./Utils/helper.js");
 var until = protractor.ExpectedConditions;
 var expectedResults = require("./Utils/expectedResults.json");
 
+var transactionCounter = 0;
 
 describe('Banking', function () {
   
@@ -25,16 +26,13 @@ describe('Banking', function () {
         custHomePage.depositBtn.click();
         custHomePage.depositAmountField.sendKeys("10000");
         custHomePage.depositDoBtn.click();
+        transactionCounter++;
         expect(custHomePage.transactionSucessNotif.isPresent()).toBe(true);
     });
 
     it('Verify last transaction is deposit', function () {
         // Refresh page until last transaction appears in list
-        while (custHomePage.tableRows == 'undefined' && custHomePage.tableRows.length == 0 || custHomePage.tableRows == 'undefined');
-        {
-            browser.sleep(100);
-            browser.refresh();
-        } 
+        helper.waitForTransaction(custHomePage.tableRows, transactionCounter);
 
         custHomePage.transactionsBtn.click();
         expect(custHomePage.transactionAmountTxt.getText()).toEqual("10000");
@@ -47,6 +45,7 @@ describe('Banking', function () {
         custHomePage.withdrawalBtn.click();
         custHomePage.withdrawalAmountField.sendKeys("5000");
         custHomePage.withdrawalDoBtn.click();
+        transactionCounter++;
         expect(custHomePage.transactionSucessNotif.isPresent()).toBe(true);
     });
 
@@ -54,16 +53,12 @@ describe('Banking', function () {
         custHomePage.transactionsBtn.click();
 
         // Refresh page until last transaction appears in list
-        while (custHomePage.tableRows == 'undefined' && custHomePage.tableRows.length < 2 || custHomePage.tableRows == 'undefined');
-        {
-            browser.sleep(100);   
-            browser.refresh();           
-        } 
+        helper.waitForTransaction(custHomePage.tableRows, transactionCounter);
 
         expect(custHomePage.transactionAmountTxt.getText()).toEqual("5000");
         expect(custHomePage.transactionTypeTxt.getText()).toEqual("Debit");
         custHomePage.logoutBtn.click();
-        browser.sleep(2000);
+
     }); 
 });
 
