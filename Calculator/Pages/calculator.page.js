@@ -1,9 +1,9 @@
 ﻿'use strict';
-
-var url = require("../Utils/urls.js");
+const url = require('../Utils/urls.json');
 var calcPage = function () { };
 
 calcPage.prototype = Object.create({}, {
+   
 
     firstField: { get: function () { return element(by.css("input[ng-model='first']")); } },
     secondField: { get: function () { return element(by.css("input[ng-model='second']")); } },
@@ -42,7 +42,5 @@ calcPage.prototype = Object.create({}, {
     }
 
 });
-
-
 
 module.exports = calcPage;

@@ -3,14 +3,14 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
-    <Name>ProtractorCourse</Name>
-    <RootNamespace>ProtractorCourse</RootNamespace>
+    <Name>Calculator</Name>
+    <RootNamespace>Calculator</RootNamespace>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>1847227e-cdfd-46d3-95e7-30e928ce4aab</ProjectGuid>
+    <ProjectGuid>d6ce8971-d616-4208-a8db-017e63c7aa92</ProjectGuid>
     <ProjectHome>.</ProjectHome>
     <StartupFile>
     </StartupFile>
@@ -31,21 +31,19 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="conf_chrome.js" />
     <Compile Include="Pages\calculator.page.js" />
-    <Compile Include="Pages\registration.page.js" />
     <Compile Include="spec.js" />
     <Compile Include="Utils\helper.js" />
-    <Compile Include="Utils\urls.js" />
     <Content Include="package.json" />
     <Content Include="README.md" />
+    <Content Include="Utils\expectedResults.json" />
+    <Content Include="Utils\urls.json" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="conf_chrome.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Pages\" />
-    <Folder Include="report\" />
     <Folder Include="Utils\" />
+    <Folder Include="report\" />
+    <Folder Include="Pages\" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
